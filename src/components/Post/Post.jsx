@@ -1,12 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Post = ({post}) => {
     const {id, title} = post
+    const navigate = useNavigate()
+    const handleNavigate = () =>{
+        navigate('/laptops')
+    }
     return (
         <div style={{border: '2px solid green'}}>
             <h3>{title}</h3>
             <Link to={`/posts/${id}`}> <button>Show details</button></Link>
+
+            <button onClick={handleNavigate}>Details of : {id}</button>
         </div>
     );
 };
